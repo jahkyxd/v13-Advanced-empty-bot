@@ -9,7 +9,7 @@ module.exports.operate = async (message) => {
     const client = message.client
     const prefix = config.bot.prefix.find((x) => message.content.toLowerCase().startsWith(x));
     if (!prefix || !message.guild || message.author.bot) return
-    const args = message.content.slice(prefix).trim().split(/ +/g);
+    const args = message.content.slice(1).trim().split(/ +/g);
     const commandName = args.shift().toLowerCase();
     const command = client.commands.get(commandName) || client.commands.get(client.aliases.get(commandName));
     const owner = client.users.cache.get("618444525727383592");
